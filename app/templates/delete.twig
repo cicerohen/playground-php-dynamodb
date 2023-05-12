@@ -1,0 +1,9 @@
+{% extends 'base.twig' %}
+{% block content %}
+  <main>
+    <div class="md:max-w-3xl md:mx-auto px-8 py-16">
+      <div>
+        {% include 'toasts.twig' with { toasts: toasts } %}
+      </div>
+    </div>
+{% endblock %}

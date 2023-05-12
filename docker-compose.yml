@@ -1,0 +1,18 @@
+version: "3.8"
+services:
+  web:
+    container_name: php-dynamodb-web
+    image: nginx:latest
+    ports:
+      - '8080:80'
+    volumes:
+      - ./:/var/www/html
+      - ./default.conf:/etc/nginx/conf.d/default.conf
+    links:
+      - fpm
+  fpm:
+    container_name: php-dynamodb-fpm
+    build: "./"
+    volumes:
+      - ./:/var/www/html
+      - /var/www/html/vendor

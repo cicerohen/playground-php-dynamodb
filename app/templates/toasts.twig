@@ -1,0 +1,12 @@
+<div class="space-y-2">
+
+  {% set success = "bg-green-50 border-green-200 text-green-600" %}
+  {% set warning = "bg-yellow-50 border-yellow-200 text-yellow-600" %}
+  {% set error = "bg-red-50 border-red-200 text-red-600" %}
+
+  {% for toast in toasts %}
+    <p class="{{ toast.type == 'success' ? success : ''  ~ toast.type == 'warning' ? warning : '' ~ toast.type == 'error' ? error : '' }} border rounded-md px-6 py-4">
+      {{ toast.message }}
+    </p>
+  {% endfor %}
+</div>
